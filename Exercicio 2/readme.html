@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readme.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><pre><code>% Universidade Positivo - Especialização Data Science e Big Data
+% Hbase 
+% LETICIA DE CASSIA SANTIN
+% 22/03/2019
+</code></pre>
+<p>/****** Exercício 2 ********/</p>
+<p>Objetivos:<br>
+– Dado determinada url, devolver a shortUrl<br>
+– Dado determinado usuário, devolver todas Url’s e shortUrl’s<br>
+– Dado determinado usuário, devolver todas Url’s e shortUrl’s e os acessos realizados<br>
+• De-normalizar<br>
+• Definir as Column Families<br>
+• Definir as Row Keys<br>
+• Criar a tbl<br>
+• Popular com pelo menos 40 “linhas”</p>
+<h3 id="definições">Definições</h3>
+<h4 id="mapeamento-dos-dados">Mapeamento dos dados:</h4>
+
+<table>
+<thead>
+<tr>
+<th><br>RowKey</th>
+<th>user_id</th>
+<th>Column</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>Family</b></td>
+<td>‘urls’</td>
+<td>shorturl</td>
+<td><a href="http://bit.ly/123">bit.ly/123</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>acessos</td>
+<td>25</td>
+</tr>
+</tbody>
+</table><h3 id="criar-e-popular-a-tabela">Criar e popular a tabela</h3>
+<p>Dados utilizados, criado via script em: <code>outputs/shortulrs_usuarios.csv</code><br>
+Saída do script utilizado se encontra em<br>
+<code>outputs/script_hbase_popular_tabela_ex2_shorturl.txt</code></p>
+<h3 id="consultas">Consultas</h3>
+<h4 id="–-dado-determinada-usuário-e-uma-url-devolver-a-shorturl">– Dado determinada usuário e uma url, devolver a shortUrl</h4>
+<p><code>hbase(main):002:0&gt; get ‘tabela_ex2_shorturl’, ‘user_9’, ‘<a href="http://www.youtube.com">www.youtube.com</a>:shorturl’</code><br>
+Resultado<br>
+<code>COLUMN            CELL<br>
+<a href="http://www.youtube.com">www.youtube.com</a>:shorturl        timestamp=1553271797923, value=www.myshorturl/23042910<br>
+1 row(s) in 0.3580 seconds</code><br>
+</p>
+<h4 id="–-dado-determinado-usuário-devolver-todas-url-́s-e-shorturl-́s">– Dado determinado usuário, devolver todas Url ́s e shortUrl ́s</h4>
+<h4 id="–-dado-determinado-usuário-devolver-todas-url-́s-e-shorturl-́s-e-os-acessos-realizados">– Dado determinado usuário, devolver todas Url ́s e shortUrl ́s e os acessos realizados</h4>
+<p>Mapeamento realizado, onde uma consulta responde as duas questões<br>
+<code>	hbase(main):003:0&gt; get ‘tabela_ex2_shorturl’,‘user_14’</code><br>
+Resposta<br>
+<code>COLUMN                 CELL<br>
+<a href="http://www.copel.com">www.copel.com</a>:acessos           timestamp=1553271796737, value=194<br>
+<a href="http://www.copel.com">www.copel.com</a>:shorturl          timestamp=1553271796751, value=www.myshorturl/43653389<br>
+<a href="http://www.vk.com">www.vk.com</a>:acessos              timestamp=1553271796755, value=388<br>
+<a href="http://www.vk.com">www.vk.com</a>:shorturl             timestamp=1553271796765, value=www.myshorturl/16506<br>
+4 row(s) in 0.2650 seconds<br>
+</code></p>
+</div>
+</body>
+
+</html>

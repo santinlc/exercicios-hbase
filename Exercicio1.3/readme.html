@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readme.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><pre><code>% Universidade Positivo - Especialização Data Science e Big Data
+% Hbase 
+% LETICIA DE CASSIA SANTIN
+% 22/03/2019
+</code></pre>
+<p>/****** Exercício 1.3 ********/</p>
+<h2 id="modelagem-1-utilizando-3-modelos-de-dados">Modelagem 1, utilizando 3 modelos de dados</h2>
+<h5 id="mapeamento-dos-dados-com-família-de-coluna-por-sexo">Mapeamento dos dados com família de coluna por sexo:</h5>
+
+<table>
+<thead>
+<tr>
+<th>RowKey</th>
+<th>ID_EMP</th>
+<th>Column</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family</td>
+<td>M</td>
+<td>NOME</td>
+<td>José</td>
+</tr>
+<tr>
+<td></td>
+<td>F</td>
+<td>SOBREN</td>
+<td>da Silva</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>RG</td>
+<td>24535357</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>DT_NASC</td>
+<td>25/02/70</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ENDER</td>
+<td>Rua Floriano Peixoto, 25</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SAL</td>
+<td>7000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>DEPTO</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ID_GER</td>
+<td>-</td>
+</tr>
+</tbody>
+</table><h5 id="mapeamento-dos-dados-com-família-de-coluna-por-departamento">Mapeamento dos dados com família de coluna por departamento:</h5>
+
+<table>
+<thead>
+<tr>
+<th>RowKey</th>
+<th>ID_EMP</th>
+<th>Column</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family</td>
+<td>D1</td>
+<td>NOME</td>
+<td>José</td>
+</tr>
+<tr>
+<td></td>
+<td>D3</td>
+<td>SOBREN</td>
+<td>da Silva</td>
+</tr>
+<tr>
+<td></td>
+<td>D4</td>
+<td>RG</td>
+<td>24535357</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>DT_NASC</td>
+<td>25/02/70</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ENDER</td>
+<td>Rua Floriano Peixoto, 25</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SEXO</td>
+<td>M</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SAL</td>
+<td>7000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ID_GER</td>
+<td></td>
+</tr>
+</tbody>
+</table><h5 id="mapeamento-dos-dados-com-família-de-coluna-por-id-do-gerente">Mapeamento dos dados com família de coluna por ID do gerente:</h5>
+
+<table>
+<thead>
+<tr>
+<th>RowKey</th>
+<th>ID_EMP</th>
+<th>Column</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family</td>
+<td>17206-2</td>
+<td>NOME</td>
+<td>José</td>
+</tr>
+<tr>
+<td></td>
+<td>12584-7</td>
+<td>SOBREN</td>
+<td>da Silva</td>
+</tr>
+<tr>
+<td></td>
+<td>16764-5</td>
+<td>RG</td>
+<td>24535357</td>
+</tr>
+<tr>
+<td></td>
+<td>-</td>
+<td>DT_NASC</td>
+<td>25/02/70</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ENDER</td>
+<td>Rua Floriano Peixoto, 25</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SEXO</td>
+<td>M</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SAL</td>
+<td>7000</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>DEPTO</td>
+<td>1</td>
+</tr>
+</tbody>
+</table><h3 id="criar-e-popular-a-tabela">Criar e popular a tabela</h3>
+<p>Script para popular o banco está em: <code>codigo/popular_modelo1.txt</code></p>
+<h2 id="modelagem-2-utilizando-1-modelo-de-dados">Modelagem 2, utilizando 1 modelo de dados</h2>
+<h5 id="mapeamento-dos-dados-com-família-de-coluna-por-sexodepto-e-id-do-gerente">Mapeamento dos dados com família de coluna por sexo,depto e ID do gerente:</h5>
+
+<table>
+<thead>
+<tr>
+<th>RowKey</th>
+<th>ID_EMP</th>
+<th>Column</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family</td>
+<td>SEXO-M</td>
+<td>NOME</td>
+<td>José</td>
+</tr>
+<tr>
+<td></td>
+<td>SEXO-F</td>
+<td>SOBREN</td>
+<td>da Silva</td>
+</tr>
+<tr>
+<td></td>
+<td>DEPTO-1</td>
+<td>RG</td>
+<td>24535357</td>
+</tr>
+<tr>
+<td></td>
+<td>DEPTO-3</td>
+<td>DT_NASC</td>
+<td>25/02/70</td>
+</tr>
+<tr>
+<td></td>
+<td>DEPTO-4</td>
+<td>ENDER</td>
+<td>Rua Floriano Peixoto, 25</td>
+</tr>
+<tr>
+<td></td>
+<td>ID_GER–</td>
+<td>SEXO</td>
+<td>M</td>
+</tr>
+<tr>
+<td></td>
+<td>ID_GER-17206-2</td>
+<td>SAL</td>
+<td>7000</td>
+</tr>
+<tr>
+<td></td>
+<td>ID_GER-12584-7</td>
+<td>DEPTO</td>
+<td>1</td>
+</tr>
+<tr>
+<td></td>
+<td>ID_GER-16764-5</td>
+<td>ID_GERENTE</td>
+<td>-</td>
+</tr>
+</tbody>
+</table><h3 id="criar-e-popular-a-tabela-1">Criar e popular a tabela</h3>
+<p>Script para popular o banco está em: <code>codigo/popular_modelo2.txt</code></p>
+</div>
+</body>
+
+</html>
